@@ -1,0 +1,18 @@
+# Files
+
+.DS_Store
+npm-debug.log
+test.html
+test.sass
+package-lock.json
+package.json
+
+# Folders
+
+.git
+.sass-cache
+_gh_pages
+_site
+dev
+node_modules
+test/output/
