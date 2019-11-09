@@ -70,10 +70,3 @@
 
 # Text files where line endings should be preserved
 *.patch    -text
-
-#
-# Exclude files from exporting
-#
-
-.gitattributes export-ignore
-.gitignore     export-ignore
