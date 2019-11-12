@@ -1,4 +1,4 @@
-fetch('https://fantasy.premierleague.com/api/bootstrap-static/')
+fetch('http://127.0.0.1:8010/proxy')
 .then(response => response.json())
 .then(data => {
 
@@ -16,5 +16,4 @@ fetch('https://fantasy.premierleague.com/api/bootstrap-static/')
   teams.forEach((teamName) => teamDiv.innerHTML += `<li>${teamName}</li>`);
 
 })
-
 .catch(error => console.error(error));
