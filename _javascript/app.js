@@ -1,4 +1,4 @@
-fetch('http://127.0.0.1:8010/proxy')
+fetch('http://127.0.0.1:8888/proxy')
 .then(response => response.json())
 .then(data => {
 
