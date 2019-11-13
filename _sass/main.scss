@@ -25,9 +25,33 @@ $primary-invert: $pink-invert;
 
 // 4. Import the rest of Bulma
 
-
 @import "../node_modules/bulma/bulma";
 
+// 5. Additional modules and customisations
+
+// 6. Begin custom CSS
+
+$fpl-green: #08FB87;
+$fpl-purple: #360D3A;
+$fpl-pink: #ff2882;
+$fpl-cyan: #05f0ff;
+
 html {
-background-color: $green;
+background-color: white;
+}
+
+h1, h2, h3, h4 {color: $fpl-purple !important;}
+
+.teams {
+margin: 0 auto;
+}
+
+.ac {
+border: 0 !important;
+background-color: $fpl-green;
+}
+
+.ac-a p {
+color: white !important;
+background-color: $fpl-purple;
 }
