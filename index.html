@@ -6,10 +6,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FPL App</title>
+  <link rel="stylesheet" href="./node_modules/accordion-js/dist/accordion.min.css">
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/app.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  <script async src="./_javascript/app.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer></script>
+  <script src="./node_modules/accordion-js/dist/accordion.min.js"></script>
+  <script src="./_javascript/app.js" async></script>
 </head>
 
 <body>
@@ -19,25 +21,16 @@
   </nav>
 
   <section class="section">
-    <div class="container columns">
-      <div class="column is-2-desktop is-offset-1-desktop">
-        <h2 class="title">FPL Teams</h3>
-        <br>
-        <ul id="teamList" class="subtitle has-text-white"></ul>
-      </div>
-      <div class="column is-2-desktop">
-        <h2 class="title">Total Points</h3>
-      </div>
-      <div class="column is-2-desktop">
-        <h2 class="title">Total Goals</h3>
-      </div>
-      <div class="column is-2-desktop">
-        <h2 class="title">Top Scorer</h3>
-      </div>
-      <div class="column is-2-desktop">
-        <h2 class="title">Top Assists</h3>
+    <div class="container columns teams">
+      <div class="column is-10-desktop is-offset-1-desktop">
+      <h2 class="title">Teams</h2>
+        <div class="accordion-container teamsList"></div>
       </div>
     </div>
+  </section>
+
+  <section class="section">
+
   </section>
 
   <footer>
