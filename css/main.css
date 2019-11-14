@@ -7114,6 +7114,9 @@ h1, h2, h3, h4 {
   border: 0 !important;
   background-color: #08FB87; }
 
+.ac-q {
+  outline: none; }
+
 .ac-a p {
   color: white !important;
   background-color: #360D3A; }
