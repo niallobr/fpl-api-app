@@ -36,5 +36,13 @@ fetch('http://localhost:8888/proxy/api/bootstrap-static/')
           teamsDown.classList.remove('is-active');
         }
       });
+
+      const teamsContentLinks = teamsContent.querySelectorAll('a');
+      for (i = 0; i < teamsContentLinks.length; i++) {
+        console.log(teamsContentLinks[i].innerHTML);
+        teamsContentLinks[i].addEventListener('click', (doSomething) => {
+          doSomething.target.style.backgroundColor = 'rgb(195, 195, 195)';
+        });
+      };
     })
     .catch((error) => console.error(error));
