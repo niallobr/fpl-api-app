@@ -29,19 +29,27 @@ fetch('http://localhost:8888/proxy/api/bootstrap-static/')
       new Accordion('.teams-list');
 
       const teamsDown = document.querySelector('.teams-dropdown');
-      teamsDown.addEventListener('click', (makeActive) => {
+      teamsDown.addEventListener('click', (active) => {
         if (teamsDown.classList.length < 3) {
           teamsDown.classList.add('is-active');
         } else {
           teamsDown.classList.remove('is-active');
         }
+        active.stopPropagation();
       });
 
       const teamsContentLinks = teamsContent.querySelectorAll('a');
       for (i = 0; i < teamsContentLinks.length; i++) {
-        console.log(teamsContentLinks[i].innerHTML);
-        teamsContentLinks[i].addEventListener('click', (doSomething) => {
-          doSomething.target.style.backgroundColor = 'rgb(195, 195, 195)';
+        teamsContentLinks[i].addEventListener('click', (active) => {
+          console.log(active.target.classList.length);
+          if (active.target.classList.length <= 1) {
+            active.target.classList.add('is-active');
+            active.target.style.backgroundColor = 'rgb(195, 195, 195)';
+          } else {
+            active.target.classList.remove('is-active');
+            active.target.style.backgroundColor = 'initial';
+          };
+          active.stopPropagation();
         });
       };
     })
