@@ -7120,3 +7120,15 @@ h1, h2, h3, h4 {
 .ac-a p {
   color: white !important;
   background-color: #360D3A; }
+
+.dropdown-item {
+  padding: 0.675rem 1rem; }
+
+.dropdown-divider {
+  margin: 0; }
+
+.dropdown-content {
+  padding-top: 0.4rem; }
+
+a.dropdown-item.is-active {
+  background-color: #360D3A; }
