@@ -7,7 +7,6 @@ fetch('http://localhost:8888/proxy/api/bootstrap-static/')
       const numTeams = fpl.teams.length;
       const acWrap1 = '<div class=\'ac ac-item\'><h2 class=\'ac-q\' tabindex=\'0\'>';
       const acWrap2 = '</h2><div class=\'ac-a\'><p>Some content<br>more content<br>even more</p></div></div>';
-
       console.log(fpl);
 
       for (i = 0; i < numTeams; i++) {
@@ -17,6 +16,8 @@ fetch('http://localhost:8888/proxy/api/bootstrap-static/')
       teams.forEach((teamName) => {
         teamsAcList.innerHTML += acWrap1 + `${teamName}` + acWrap2;
       });
+
+      const acItem = document.querySelectorAll('.teams-ac-list .ac-item');
 
       const dropWrap1 = '<a href="#" class="dropdown-item">';
       const dropWrap2 = '</a><hr class="dropdown-divider">';
@@ -39,14 +40,20 @@ fetch('http://localhost:8888/proxy/api/bootstrap-static/')
       });
 
       let activeTeams = [];
-
       const teamsDropLinks = teamsDropList.querySelectorAll('a');
+
+
       for (i = 0; i < teamsDropLinks.length; i++) {
         teamsDropLinks[i].addEventListener('click', (active) => {
           const t = active.target;
           if (t.classList.length <= 1) {
             t.classList.add('is-active');
             activeTeams.push(t.innerHTML);
+            for (x = 0; x < acItem.length; x++) {
+              if (t.classList.contains('is-active') && t.innerHTML == acItem[x].firstChild.innerHTML) {
+                acItem[x].style.display = 'none';
+              };
+            };
             console.log(activeTeams);
           } else {
             t.classList.remove('is-active');
