@@ -44,15 +44,17 @@ fetch('http://localhost:8888/proxy/api/bootstrap-static/')
 
       let activeTeams = [];
       const teamsDropLinks = teamsDropList.querySelectorAll('a');
+      const downReset = document.querySelector('.reset');
+      const acItem = document.querySelectorAll('.teams-ac-list .ac-item');
 
       for (i = 0; i < teamsDropLinks.length; i++) {
         teamsDropLinks[i].addEventListener('click', (active) => {
           const t = active.target;
-          const acItem = document.querySelectorAll('.teams-ac-list .ac-item');
           // Add an active class to dropdown items and push to activeTeams
           if (t.classList.length <= 1) {
             t.classList.add('is-active');
             activeTeams.push(t.innerHTML);
+            downReset.style.display = 'block';
             // Now filter selection from accordion list
             for (x = 0; x < acItem.length; x++) {
               if (t.classList.contains('is-active') && t.innerHTML == acItem[x].firstChild.innerHTML) {
@@ -63,7 +65,7 @@ fetch('http://localhost:8888/proxy/api/bootstrap-static/')
             // Remove active class on dropdown items if already active
             t.classList.remove('is-active');
             // If item not active and is in both lists then unhide it
-            if (t.classList != 'is-active') {
+            if (t.classList !== 'is-active') {
               for (x = 0; x < acItem.length; x++) {
                 if (t.innerHTML == acItem[x].firstChild.innerHTML) {
                   acItem[x].style.display = 'block';
@@ -76,7 +78,23 @@ fetch('http://localhost:8888/proxy/api/bootstrap-static/')
                 activeTeams = activeTeams.filter((i) => i !== t.innerHTML);
               };
             });
+            if (t.classList !== 'is-active' && activeTeams.length === 0) {
+              downReset.style.display = 'none';
+            };
           };
+          active.stopPropagation();
+        });
+        downReset.addEventListener('click', (active) => {
+          for (i = 0; i < teamsDropLinks.length; i++) {
+            teamsDropLinks[i].classList.remove('is-active');
+            for (x = 0; x < acItem.length; x++) {
+              if (teamsDropLinks[i].innerHTML == acItem[x].firstChild.innerHTML) {
+                acItem[x].style.display = 'block';
+              };
+            };
+          }
+          activeTeams = [];
+          downReset.style.display = 'none';
           active.stopPropagation();
         });
       };
