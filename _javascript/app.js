@@ -45,7 +45,6 @@ fetch('http://localhost:8888/proxy/api/bootstrap-static/')
       let activeTeams = [];
       const teamsDropLinks = teamsDropList.querySelectorAll('a');
 
-
       for (i = 0; i < teamsDropLinks.length; i++) {
         teamsDropLinks[i].addEventListener('click', (active) => {
           const t = active.target;
@@ -60,13 +59,22 @@ fetch('http://localhost:8888/proxy/api/bootstrap-static/')
                 acItem[x].style.display = 'none';
               };
             };
-          } else {
+          } else { // if classlist > 1
             // Remove active class on dropdown items if already active
             t.classList.remove('is-active');
+            // If item not active and is in both lists then unhide it
+            if (t.classList != 'is-active') {
+              for (x = 0; x < acItem.length; x++) {
+                if (t.innerHTML == acItem[x].firstChild.innerHTML) {
+                  acItem[x].style.display = 'block';
+                };
+              };
+            };
+            // Remove inactive item from array
             activeTeams.forEach((name) => {
               if (t.innerHTML === name) {
                 activeTeams = activeTeams.filter((i) => i !== t.innerHTML);
-              }
+              };
             });
           };
           active.stopPropagation();
