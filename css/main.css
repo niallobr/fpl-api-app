@@ -7121,6 +7121,9 @@ h1, h2, h3, h4 {
   color: white !important;
   background-color: #360D3A; }
 
+.teams-dropdown .icon {
+  color: #d7d7d7; }
+
 .dropdown-item {
   padding: 0.675rem 1rem; }
 
@@ -7132,3 +7135,13 @@ h1, h2, h3, h4 {
 
 a.dropdown-item.is-active {
   background-color: #360D3A; }
+
+.reset {
+  padding-right: 10px !important;
+  display: none;
+  border: 0;
+  background-color: white; }
+
+.reset span {
+  float: right;
+  padding-top: 3px; }

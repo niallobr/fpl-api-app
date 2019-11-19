@@ -58,7 +58,19 @@ margin: 0 auto;
 }
 
 // dropdown elements
+.teams-dropdown .icon {color: rgb(215, 215, 215);}
 .dropdown-item {padding: 0.675rem 1rem;}
 .dropdown-divider {margin: 0;}
 .dropdown-content {padding-top: 0.4rem;}
 a.dropdown-item.is-active {background-color: $fpl-purple;}
+  // reset button
+  .reset {
+    padding-right: 10px !important;
+    display: none;
+    border: 0;
+    background-color: white;
+  }
+  .reset span {
+    float: right;
+    padding-top: 3px;
+  }
