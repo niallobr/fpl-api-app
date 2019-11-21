@@ -37,6 +37,10 @@ Filter
 
 CSS animations
 
+## Requirements
+
+The default Bulma styles have been removed in order to correct the language stats at the top of the repository.
+
 ## Credits
 
 Built with 💛 using <a href="https://atom.io" target="_blank">Atom</a>, <a href="https://bulma.io" target="_blank">Bulma</a>, <a href="https://iterm2.com" target="_blank">iTerm2</a>, <a href="https://github.com" target="_blank">GitHub</a> and data from the <a href="https://fantasy.premierleague.com/"  target="_blank">Fantasy Premier League</a>.
