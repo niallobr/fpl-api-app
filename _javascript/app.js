@@ -46,6 +46,22 @@ fetch('http://localhost:8888/proxy/api/bootstrap-static/')
         }
       };
 
+      filterTeams = () => {
+        acItems.forEach((item) => {
+          for (i = 0; i < activeTeams.length; i++) {
+            if (activeTeams[i] === item.firstChild.innerHTML) {
+              item.style.display = 'block';
+            } else {
+              for (x = 0; x < inactiveTeams.length; x++) {
+                if (inactiveTeams[x] === item.firstChild.innerHTML) {
+                  item.style.display = 'none';
+                }
+              }
+            }
+          }
+        });
+      };
+
       new Accordion('.teams-ac-list');
 
       teamsDown.addEventListener('click', (active) => {
@@ -73,25 +89,16 @@ fetch('http://localhost:8888/proxy/api/bootstrap-static/')
             inactiveTeams = inactiveTeams.filter((el) => el !== t.innerHTML);
             // Show reset button
             downReset.style.display = 'block';
-            acItems.forEach((item) => {
-              for (i = 0; i < activeTeams.length; i++) {
-                if (activeTeams[i] === item.firstChild.innerHTML) {
-                  item.style.display = 'block';
-                } else {
-                  for (x = 0; x < inactiveTeams.length; x++) {
-                    if (inactiveTeams[x] === item.firstChild.innerHTML) {
-                      item.style.display = 'none';
-                    }
-                  }
-                }
-              }
-            });
+            // Filter
+            filterTeams();
           } else { // if classlist > 1
             // Remove active class on dropdown item
             t.classList.remove('is-active');
             // Update arrays
             inactiveTeams.push(t.innerHTML);
             activeTeams = activeTeams.filter((el) => el !== t.innerHTML);
+            // Filter
+            filterTeams();
             // Hide reset button
             if (t.classList !== 'is-active' && activeTeams.length === 0) {
               downReset.style.display = 'none';
