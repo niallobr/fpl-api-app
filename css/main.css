@@ -7133,6 +7133,9 @@ h1, h2, h3, h4 {
 .dropdown-content {
   padding-top: 0.4rem; }
 
+a.dropdown-item {
+  padding-right: 10px; }
+
 a.dropdown-item.is-active {
   background-color: #360D3A; }
 
@@ -7145,3 +7148,7 @@ a.dropdown-item.is-active {
 .reset span {
   float: right;
   padding-top: 3px; }
+
+.close {
+  display: none;
+  float: right; }
